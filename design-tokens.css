@@ -1,0 +1,71 @@
+/* Tokens extraídos do CSS de origem; seletores e media queries preservados. */
+:root {
+  --font-inter: "Inter";
+  --font-plus-jakarta: "Plus Jakarta Sans";
+  --fonte-display: "Schibsted Grotesk";
+  --fonte-texto: "Public Sans";
+  --fonte-quicksand: "Quicksand";
+  --fonte-pixel: "Silkscreen";
+  --fonte-assinatura: "Yellowtail";
+  --fonte-slab: "Roboto Slab";
+  --fonte-orbitron: "Orbitron";
+  --fonte-questrial: "Questrial";
+}
+
+@layer tokens-origem {
+.sv--cartao-de-visita-digital {
+  --cv-azul: #0854aa;
+  --cv-claro: #3b82f6;
+  --cv-verde: #10b981;
+  --cv-ouro: #eab308;
+  --cv-noite: #0f172a;
+  --cv-cinza: #475569;
+  --cv-gelo: #f1f5fb;
+}
+.sv--cartao-de-visita-digital [data-tema='azul'] { --t: #0854aa; --t-txt: #fff; --t-sub: #c8dcf6; }
+.sv--cartao-de-visita-digital [data-tema='verde'] { --t: #0e8f66; --t-txt: #fff; --t-sub: #c6f1e2; }
+.sv--cartao-de-visita-digital [data-tema='noite'] { --t: #0f172a; --t-txt: #fff; --t-sub: #a5b4cf; }
+.sv--cartao-de-visita-digital [data-tema='ouro'] { --t: #eab308; --t-txt: #1c1404; --t-sub: #4a3a08; }
+.sv--cartao-de-visita-digital .mt-cta--claro { --cta-disco: var(--cv-azul); --cta-hover: var(--cv-verde); }
+.sv--cartao-de-visita-digital .mt-cta--escuro { --cta-seta: var(--cv-azul); --cta-hover: var(--cv-verde); --cta-hover-seta: #fff; }
+@media (max-width: 899px) {
+  .sv-cv-leque li { --passo: 64px; }
+}
+
+.site-mutua {
+  --azul: #2140c2;
+  --azul-forte: #1832a0;
+  --azul-claro: #3a58d6;
+  --azul-texto: #d6defa;
+  --noite: #0a1733;
+  --noite-2: #13244a;
+  --noite-linha: #2a3b66;
+  --noite-texto: #b9c4e0;
+  --gelo: #e6ecfa;
+  --gelo-linha: #c9d3ec;
+  --branco: #ffffff;
+  --tinta: #0c1424;
+  --tinta-2: #4b5670;
+  --linha: #d9dfec;
+  --verde: #3e9b48;
+
+  --saida: cubic-bezier(0.23, 1, 0.32, 1);
+  --gaveta: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --raio: 16px;
+  --raio-pequeno: 10px;
+  --largura: 1840px;
+  --margem: clamp(20px, 3.5vw, 72px);
+  --altura-topo: 80px;
+  --topo-offset: var(--altura-topo);
+}
+.mt-cta { --cta-d: 52px; --cta-f: 1.35rem; }
+.mt-cta--g { --cta-d: 68px; --cta-f: clamp(1.5rem, 2.4vw, 2.2rem); }
+.mt-cta--m { --cta-d: 52px; --cta-f: 1.35rem; }
+.mt-cta--p { --cta-d: 40px; --cta-f: 1.05rem; }
+.mt-cta--claro { --cta-disco: var(--noite); --cta-seta: var(--branco); --cta-hover: var(--verde); --cta-hover-seta: var(--branco); }
+.mt-cta--escuro { --cta-disco: var(--branco); --cta-seta: var(--azul); --cta-hover: #9be3a3; --cta-hover-seta: var(--noite); }
+.mt-cta-final__simbolo { --p: 0;
+}
+
+}

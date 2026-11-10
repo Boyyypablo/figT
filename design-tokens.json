@@ -1,0 +1,178 @@
+{
+  "descricao": "Tokens essenciais da landing cartao-de-visita-digital. Fonte da verdade: design-tokens.css (mesmos nomes de variáveis).",
+  "cores": {
+    "marca": {
+      "--azul": "#2140c2",
+      "--azul-forte": "#1832a0",
+      "--azul-claro": "#3a58d6",
+      "--azul-texto": "#d6defa",
+      "--noite": "#0a1733",
+      "--noite-2": "#13244a",
+      "--noite-linha": "#2a3b66",
+      "--noite-texto": "#b9c4e0",
+      "--gelo": "#e6ecfa",
+      "--gelo-linha": "#c9d3ec",
+      "--branco": "#ffffff",
+      "--tinta": "#0c1424",
+      "--tinta-2": "#4b5670",
+      "--linha": "#d9dfec",
+      "--verde": "#3e9b48"
+    },
+    "servico": {
+      "--cv-azul": "#0854aa",
+      "--cv-claro": "#3b82f6",
+      "--cv-verde": "#10b981",
+      "--cv-ouro": "#eab308",
+      "--cv-noite": "#0f172a",
+      "--cv-cinza": "#475569",
+      "--cv-gelo": "#f1f5fb"
+    },
+    "variacoes": {
+      ".sv--cartao-de-visita-digital [data-tema='azul']": {
+        "--t": "#0854aa",
+        "--t-txt": "#fff",
+        "--t-sub": "#c8dcf6"
+      },
+      ".sv--cartao-de-visita-digital [data-tema='verde']": {
+        "--t": "#0e8f66",
+        "--t-txt": "#fff",
+        "--t-sub": "#c6f1e2"
+      },
+      ".sv--cartao-de-visita-digital [data-tema='noite']": {
+        "--t": "#0f172a",
+        "--t-txt": "#fff",
+        "--t-sub": "#a5b4cf"
+      },
+      ".sv--cartao-de-visita-digital [data-tema='ouro']": {
+        "--t": "#eab308",
+        "--t-txt": "#1c1404",
+        "--t-sub": "#4a3a08"
+      },
+      ".sv--cartao-de-visita-digital .mt-cta--claro": {
+        "--cta-disco": "var(--cv-azul)",
+        "--cta-hover": "var(--cv-verde)"
+      },
+      ".sv--cartao-de-visita-digital .mt-cta--escuro": {
+        "--cta-seta": "var(--cv-azul)",
+        "--cta-hover": "var(--cv-verde)",
+        "--cta-hover-seta": "#fff"
+      }
+    }
+  },
+  "tipografia": {
+    "familias": {
+      "--font-inter": "\"Inter\"",
+      "--font-plus-jakarta": "\"Plus Jakarta Sans\"",
+      "--fonte-display": "\"Schibsted Grotesk\"",
+      "--fonte-texto": "\"Public Sans\"",
+      "--fonte-quicksand": "\"Quicksand\"",
+      "--fonte-pixel": "\"Silkscreen\"",
+      "--fonte-assinatura": "\"Yellowtail\"",
+      "--fonte-slab": "\"Roboto Slab\"",
+      "--fonte-orbitron": "\"Orbitron\"",
+      "--fonte-questrial": "\"Questrial\""
+    },
+    "servico": {},
+    "cta": {
+      ".mt-cta": {
+        "--cta-d": "52px",
+        "--cta-f": "1.35rem"
+      },
+      ".mt-cta--g": {
+        "--cta-d": "68px",
+        "--cta-f": "clamp(1.5rem, 2.4vw, 2.2rem)"
+      },
+      ".mt-cta--m": {
+        "--cta-d": "52px",
+        "--cta-f": "1.35rem"
+      },
+      ".mt-cta--p": {
+        "--cta-d": "40px",
+        "--cta-f": "1.05rem"
+      },
+      ".mt-cta--claro": {
+        "--cta-disco": "var(--noite)",
+        "--cta-seta": "var(--branco)",
+        "--cta-hover": "var(--verde)",
+        "--cta-hover-seta": "var(--branco)"
+      },
+      ".mt-cta--escuro": {
+        "--cta-disco": "var(--branco)",
+        "--cta-seta": "var(--azul)",
+        "--cta-hover": "#9be3a3",
+        "--cta-hover-seta": "var(--noite)"
+      },
+      ".mt-cta-final__simbolo": {
+        "--p": "0"
+      }
+    }
+  },
+  "espacamentos": {
+    "--largura": "1840px",
+    "--margem": "clamp(20px, 3.5vw, 72px)",
+    "--altura-topo": "80px",
+    "--topo-offset": "var(--altura-topo)",
+    "observacao": "--altura-topo reserva o espaço do topo fixo do site que receber a landing; use 0px se não houver topo fixo.",
+    "frequentes": [
+      "0",
+      "8px",
+      "10px",
+      "16px",
+      "14px",
+      "12px",
+      "18px",
+      "6px",
+      "20px",
+      "24px",
+      "28px",
+      "auto"
+    ]
+  },
+  "raios": {
+    "--raio": "16px",
+    "--raio-pequeno": "10px",
+    "frequentes": [
+      "999px",
+      "50%",
+      "14px",
+      "12px",
+      "20px",
+      "8px",
+      "24px",
+      "16px"
+    ]
+  },
+  "sombras": {
+    "frequentes": [
+      "inset 0 0 0 2px var(--azul)",
+      "inset 0 0 0 1px var(--gelo-linha)",
+      "0 1px 2px rgb(15 23 42 / 0.06)",
+      "0 30px 50px -30px rgb(15 23 42 / 0.6)",
+      "0 1px 0 var(--linha)",
+      "-24px 0 64px rgb(10 23 51 / 0.2)",
+      "inset 0 0 0 1px var(--linha)",
+      "0 24px 64px -24px rgb(0 0 0 / 0.5)"
+    ]
+  },
+  "motion": {
+    "--saida": "cubic-bezier(0.23, 1, 0.32, 1)",
+    "--gaveta": "cubic-bezier(0.32, 0.72, 0, 1)",
+    "duracoes": [
+      "300ms",
+      "200ms",
+      "160ms",
+      "220ms",
+      "180ms",
+      "260ms",
+      "520ms",
+      "240ms"
+    ],
+    "reduzido": "prefers-reduced-motion: reduce desliga as animações"
+  },
+  "regras": [
+    "Sem degradê",
+    "Sem círculo decorativo",
+    "O símbolo da Mútua nunca gira",
+    "Respeitar prefers-reduced-motion"
+  ]
+}

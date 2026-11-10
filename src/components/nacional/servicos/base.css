@@ -1,0 +1,80 @@
+/*
+ * Landings dos serviços — peças comuns.
+ * Cada serviço tem seu arquivo (whatsapp.css, celular.css…) com a própria identidade, escopada em `.sv--<slug>`.
+ * Movimento: CSS scroll-driven (view()), reversível; sem suporte ou com movimento reduzido, tudo fica no lugar.
+ * Só transform/opacity/clip-path são animados.
+ */
+
+.sv { overflow-x: clip; }
+.sv h1, .sv h2, .sv h3 { text-wrap: balance; }
+.sv p { text-wrap: pretty; }
+
+.sv-trilha { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; font-size: 0.925rem; opacity: 0.85; }
+.sv-trilha a { text-decoration: underline; text-underline-offset: 4px; text-decoration-color: currentColor; text-decoration-thickness: 1px; }
+.sv-trilha a:hover { opacity: 0.7; }
+
+.sv-hub-oculto, .sv-oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+/* Topo sobre hero colorido: o hero desce o conteúdo pela altura do topo. */
+.sv-hero-sob-topo { padding-top: var(--altura-topo); }
+
+/* ---------- Entradas guiadas pelo scroll ---------- */
+@keyframes sv-sobe { from { opacity: 0; transform: translateY(56px); } }
+@keyframes sv-esq { from { opacity: 0; transform: translateX(-80px); } }
+@keyframes sv-dir { from { opacity: 0; transform: translateX(80px); } }
+@keyframes sv-cresce { from { opacity: 0; transform: scale(0.86); } }
+@keyframes sv-gira { from { opacity: 0; transform: translateY(60px) rotate(-6deg); } }
+@keyframes sv-revela { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sv-sobe, .sv-esq, .sv-dir, .sv-cresce, .sv-gira, .sv-revela {
+      animation-fill-mode: both; animation-timing-function: cubic-bezier(.23, 1, .32, 1);
+      animation-timeline: view(); animation-range: entry 0% cover 32%;
+    }
+    .sv-sobe { animation-name: sv-sobe; }
+    .sv-esq { animation-name: sv-esq; }
+    .sv-dir { animation-name: sv-dir; }
+    .sv-cresce { animation-name: sv-cresce; }
+    .sv-gira { animation-name: sv-gira; }
+    .sv-revela { animation-name: sv-revela; animation-timing-function: linear; }
+    /* Itens de lista entram em cascata: cada um começa um pouco depois do anterior. */
+    .sv-cascata > * { animation: sv-sobe both cubic-bezier(.23, 1, .32, 1); animation-timeline: view(); animation-range: entry calc(var(--i, 0) * 6%) cover calc(28% + var(--i, 0) * 6%); }
+  }
+}
+
+/* ---------- Trilho horizontal (TrilhoHorizontal.tsx) ---------- */
+.sv-trilho { position: relative; }
+.sv-trilho__palco { display: grid; gap: clamp(28px, 4vw, 56px); padding-block: clamp(80px, 8vw, 120px); }
+.sv-trilho__faixa { display: flex; gap: 16px; width: 100%; padding: 0 var(--margem) 12px max(var(--margem), calc((100vw - var(--largura)) / 2 + var(--margem))); overflow-x: auto; scroll-snap-type: x mandatory; }
+.sv-trilho__faixa > * { flex: none; scroll-snap-align: start; }
+.sv-trilho.is-ativo .sv-trilho__palco { grid-template-columns: 100%; position: sticky; top: 0; height: 100svh; align-content: center; padding-block: var(--altura-topo) 32px; overflow: hidden; }
+.sv-trilho.is-ativo .sv-trilho__faixa { width: max-content; overflow: visible; will-change: transform; }
+
+/* ---------- Outros serviços do grupo ---------- */
+.sv-outros { padding-block: clamp(64px, 7vw, 110px); background: var(--branco); color: var(--tinta); border-top: 1px solid var(--linha); }
+.sv-outros__cabeca { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
+.sv-outros__cabeca h2 { font-family: var(--fonte-display), system-ui, sans-serif; font-size: clamp(1.7rem, 2.8vw, 2.6rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+.sv-outros__lista { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(250px, 1fr); gap: 14px; list-style: none; margin: 0; padding: 0 0 8px; overflow-x: auto; scroll-snap-type: x mandatory; }
+.sv-outros__lista li { scroll-snap-align: start; }
+.sv-outros__lista a { position: relative; display: grid; align-content: start; gap: 10px; height: 100%; min-height: 176px; padding: 24px 24px 60px; border-radius: 22px; background: var(--gelo); color: var(--tinta); box-shadow: inset 0 0 0 1px var(--gelo-linha); transition: background-color 260ms var(--saida), color 260ms var(--saida), translate 260ms var(--saida); }
+.sv-outros__lista a::before { content: ''; width: 36px; height: 6px; border-radius: 3px; background: var(--cor); transition: background-color 260ms var(--saida); }
+.sv-outros__lista strong { font-family: var(--fonte-display), system-ui, sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.sv-outros__lista span { color: var(--tinta-2); line-height: 1.45; transition: color 260ms var(--saida); }
+.sv-outros__seta { position: absolute; left: 24px; bottom: 22px; transition: translate 260ms var(--saida); }
+@media (hover: hover) and (pointer: fine) {
+  .sv-outros__lista a:hover { background: var(--cor); color: var(--branco); translate: 0 -6px; }
+  .sv-outros__lista a:hover::before { background: var(--branco); }
+  .sv-outros__lista a:hover span { color: rgb(255 255 255 / 0.85); }
+  .sv-outros__lista a:hover .sv-outros__seta { translate: 8px 0; }
+}
+.sv-outros__lista a:focus-visible { outline: 3px solid var(--cor); outline-offset: 3px; }
+
+/* Botões genéricos das landings (o CTA principal é sempre o `Cta` do site). */
+.sv-botao { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 22px; border: 0; border-radius: 999px; font: inherit; font-weight: 700; cursor: pointer; transition: background-color 180ms var(--saida), color 180ms var(--saida), scale 160ms var(--saida), box-shadow 180ms var(--saida); }
+.sv-botao:active { scale: 0.96; }
+.sv-botao:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sv *, .sv *::before, .sv *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+}

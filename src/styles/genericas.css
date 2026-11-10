@@ -1,0 +1,41 @@
+/* Seções genéricas que o editor pode adicionar em qualquer página. Prefixo sg-. */
+.sg-sobre { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--azul); }
+.is-noite .sg-sobre { color: #9be3a3; }
+.sg-titulo { margin-top: 10px; max-width: 22ch; font-family: var(--fonte-display), system-ui, sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.4rem); letter-spacing: -0.045em; line-height: 1.02; }
+.sg-texto { margin-top: 16px; max-width: 58ch; font-size: 1.1rem; line-height: 1.65; color: var(--tinta-2); white-space: pre-line; }
+.is-noite .sg-texto { color: var(--noite-texto); }
+.sg-acoes { margin-top: 28px; }
+.sg-semfoto { position: absolute; inset: 0; display: grid; place-items: center; background: var(--gelo); color: var(--tinta-2); font-weight: 600; }
+
+.sg-texto-imagem__grade { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 88px); align-items: center; }
+.sg-texto-imagem[data-lado='direita'] .sg-texto-imagem__foto { order: 2; }
+.sg-texto-imagem__foto { position: relative; aspect-ratio: 4 / 3; border-radius: 32px 32px 32px 120px; overflow: hidden; background: var(--gelo); }
+.sg-texto-imagem__foto img { object-fit: cover; }
+
+.sg-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin: 32px 0 0; padding: 0; list-style: none; }
+.sg-card { position: relative; display: grid; gap: 8px; align-content: start; height: 100%; padding: 14px 14px 22px; border-radius: 24px; background: var(--branco); transition: translate 240ms var(--saida), box-shadow 240ms var(--saida); }
+a.sg-card:hover { translate: 0 -4px; box-shadow: 0 22px 40px -28px rgb(10 23 51 / 0.5); }
+.sg-card__foto { position: relative; display: block; aspect-ratio: 16 / 10; margin-bottom: 8px; border-radius: 16px; overflow: hidden; background: var(--gelo); }
+.sg-card__foto img { object-fit: cover; }
+.sg-card b { padding-inline: 4px; font-family: var(--fonte-display), system-ui, sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.025em; }
+.sg-card > span:not(.sg-card__foto) { padding-inline: 4px; color: var(--tinta-2); line-height: 1.5; }
+.sg-card__seta { position: absolute; right: 18px; bottom: 18px; color: var(--azul); }
+
+.sg-faixa__grade { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; }
+
+.sg-numeros__lista { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 36px 0 0; }
+.sg-numeros__lista > div { display: grid; gap: 6px; padding-top: 18px; border-top: 1px solid var(--noite-linha); }
+.sg-numeros__lista dd { order: -1; margin: 0; display: flex; align-items: baseline; gap: 10px; font-family: var(--fonte-display), system-ui, sans-serif; font-weight: 800; font-size: clamp(2.4rem, 4.6vw, 4.2rem); letter-spacing: -0.05em; line-height: 1; color: #9be3a3; }
+.sg-numeros__lista dt { color: var(--noite-texto); }
+.sg-vivo { padding: 3px 8px; border-radius: 999px; background: rgb(155 227 163 / 0.15); font-family: var(--fonte-texto), sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.sg-nota { margin-top: 24px; font-size: 0.9rem; color: var(--noite-texto); }
+.ed-placeholder { display: grid; place-items: center; height: 100%; min-height: 320px; border-radius: 24px; background: rgb(255 255 255 / 0.06); color: var(--noite-texto); font-weight: 600; }
+
+@media (max-width: 900px) { .sg-texto-imagem__grade { grid-template-columns: 1fr; } .sg-texto-imagem[data-lado='direita'] .sg-texto-imagem__foto { order: 0; } }
+/* Card como contêiner: cor própria e recorte da foto por variáveis (sem variável, igual ao de antes). */
+.sg-cards > li > .sg-card { background: var(--obj-fundo, var(--branco)); }
+.sg-cards > li > .sg-card b { color: var(--obj-texto, inherit); }
+.sg-cards > li > .sg-card > span:not(.sg-card__foto) { color: var(--obj-texto, var(--tinta-2)); }
+.sg-card__foto img { object-fit: var(--foto-ajuste, cover); object-position: var(--foto-foco, 50% 50%); scale: var(--foto-zoom, none); transform-origin: var(--foto-foco, 50% 50%); opacity: var(--foto-opacidade, 1); }
+@media (max-width: 900px) { .sg-card__foto img { object-fit: var(--foto-ajuste-t, var(--foto-ajuste, cover)); object-position: var(--foto-foco-t, var(--foto-foco, 50% 50%)); scale: var(--foto-zoom-t, var(--foto-zoom, none)); transform-origin: var(--foto-foco-t, var(--foto-foco, 50% 50%)); opacity: var(--foto-opacidade-t, var(--foto-opacidade, 1)); } }
+@media (max-width: 560px) { .sg-card__foto img { object-fit: var(--foto-ajuste-m, var(--foto-ajuste-t, var(--foto-ajuste, cover))); object-position: var(--foto-foco-m, var(--foto-foco-t, var(--foto-foco, 50% 50%))); scale: var(--foto-zoom-m, var(--foto-zoom-t, var(--foto-zoom, none))); transform-origin: var(--foto-foco-m, var(--foto-foco-t, var(--foto-foco, 50% 50%))); opacity: var(--foto-opacidade-m, var(--foto-opacidade-t, var(--foto-opacidade, 1))); } }

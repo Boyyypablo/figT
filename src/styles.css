@@ -1,0 +1,250 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "./";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system MWS (Mútua Web Service).
+ * Azul institucional #1e3a8a, azul de apoio #2563eb, amarelo de destaque #fde047,
+ * texto slate-950, superfícies brancas e slate-50. Raio padrão 12px.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-regional: var(--regional);
+  --color-regional-foreground: var(--regional-foreground);
+  --color-surface-cool: var(--surface-cool);
+  --font-sans: var(--font-inter), "Inter", ui-sans-serif, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: var(--font-plus-jakarta), "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.995 0.006 250);
+  --foreground: oklch(0.16 0.065 264);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.065 264);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.065 264);
+  /* Azul profundo da logo Mútua, mais saturado */
+  --primary: oklch(0.34 0.2 266);
+  --primary-foreground: oklch(0.99 0.005 250);
+  /* Azul médio da logo, mais vivo */
+  --brand: oklch(0.52 0.22 264);
+  --brand-foreground: oklch(1 0 0);
+  --secondary: oklch(0.94 0.055 250);
+  --secondary-foreground: oklch(0.34 0.2 266);
+  --surface-cool: oklch(0.95 0.035 245);
+  --muted: oklch(0.955 0.035 250);
+  --muted-foreground: oklch(0.38 0.075 260);
+  /* Destaque da regional — azul médio vivo */
+  --regional: oklch(0.52 0.22 264);
+  --regional-foreground: oklch(1 0 0);
+  /* Verde da seta da logo, mais saturado */
+  --accent: oklch(0.78 0.23 145);
+  --accent-foreground: oklch(0.22 0.12 267);
+  --destructive: oklch(0.577 0.245 27.3);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.85 0.06 252);
+  --input: oklch(0.85 0.06 252);
+  --ring: oklch(0.52 0.22 264);
+  --chart-1: oklch(0.34 0.2 266);
+  --chart-2: oklch(0.52 0.22 264);
+  --chart-3: oklch(0.64 0.22 145);
+  --chart-4: oklch(0.64 0.13 257);
+  --chart-5: oklch(0.59 0.18 185);
+  --sidebar: oklch(0.975 0.025 250);
+  --sidebar-foreground: oklch(0.16 0.065 264);
+  --sidebar-primary: oklch(0.34 0.2 266);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.94 0.055 250);
+  --sidebar-accent-foreground: oklch(0.34 0.2 266);
+  --sidebar-border: oklch(0.85 0.06 252);
+  --sidebar-ring: oklch(0.52 0.22 264);
+
+  --gradient-mws: linear-gradient(135deg, oklch(0.26 0.19 268) 0%, oklch(0.34 0.2 266) 52%, oklch(0.52 0.22 264) 100%);
+  --shadow-card: 0 2px 5px oklch(0.16 0.065 264 / 0.12), 0 10px 28px -14px oklch(0.34 0.2 266 / 0.38);
+  --shadow-card-hover: 0 4px 10px oklch(0.16 0.065 264 / 0.14), 0 20px 44px -18px oklch(0.34 0.2 266 / 0.5);
+}
+
+
+.dark {
+  --background: oklch(0.125 0.045 261.7);
+  --foreground: oklch(0.984 0.003 247.9);
+  --card: oklch(0.205 0.065 265.8);
+  --card-foreground: oklch(0.984 0.003 247.9);
+  --popover: oklch(0.205 0.065 265.8);
+  --popover-foreground: oklch(0.984 0.003 247.9);
+  --primary: oklch(0.58 0.16 265.5);
+  --primary-foreground: oklch(1 0 0);
+  --brand: oklch(0.66 0.17 265.5);
+  --brand-foreground: oklch(1 0 0);
+  --secondary: oklch(0.28 0.07 260);
+  --secondary-foreground: oklch(0.984 0.003 247.9);
+  --surface-cool: oklch(0.22 0.055 255);
+  --muted: oklch(0.28 0.06 260);
+  --muted-foreground: oklch(0.75 0.055 256.8);
+  --accent: oklch(0.78 0.2 143);
+  --accent-foreground: oklch(0.205 0.065 265.8);
+  --destructive: oklch(0.704 0.191 22.2);
+  --destructive-foreground: oklch(0.984 0.003 247.9);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.66 0.17 265.5);
+  --sidebar: oklch(0.205 0.065 265.8);
+  --sidebar-foreground: oklch(0.984 0.003 247.9);
+  --sidebar-primary: oklch(0.58 0.16 265.5);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.28 0.07 260);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.9);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.66 0.17 265.5);
+  --regional: oklch(0.66 0.17 265.5);
+  --regional-foreground: oklch(1 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    caret-color: var(--brand);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--brand) 28%, transparent);
+    color: var(--foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-synthesis: none;
+    letter-spacing: -0.015em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility bg-gradient-mws {
+  background-image: var(--gradient-mws);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-card-hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Mesh gradient do hero — blobs radiais suaves, sem textura fotográfica */
+@utility bg-hero-mesh {
+  background-color: #09163f;
+  background-image:
+    radial-gradient(60% 65% at 12% 88%, rgba(26, 72, 190, 1) 0%, rgba(26, 72, 190, 0) 70%),
+    radial-gradient(70% 75% at 48% 45%, rgba(48, 108, 235, 1) 0%, rgba(48, 108, 235, 0) 68%),
+    radial-gradient(50% 55% at 86% 10%, rgba(72, 196, 54, 0.82) 0%, rgba(72, 196, 54, 0) 70%),
+    radial-gradient(80% 90% at 95% 100%, rgba(8, 20, 58, 0.98) 0%, rgba(8, 20, 58, 0) 75%),
+    radial-gradient(70% 80% at 0% 0%, rgba(8, 20, 58, 0.98) 0%, rgba(8, 20, 58, 0) 70%);
+}
+
+
+/* Grain sutil por cima do mesh */
+@utility hero-grain {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.16;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Container padrão das seções MWS */
+@utility mws-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@keyframes nacional-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.nacional-marquee {
+  animation: nacional-marquee 42s linear infinite;
+}
+
+.nacional-marquee:hover { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nacional-marquee { animation: none; }
+}

@@ -1,0 +1,103 @@
+{
+  "slug": "cartao-de-visita-digital",
+  "titulo": "Cartão de Visita Digital",
+  "arquivos": [
+    {
+      "origem": "front/src/components/nacional/servicos/cartao/LandingCartao.tsx",
+      "destino": "src/components/nacional/servicos/cartao/LandingCartao.tsx",
+      "sha256Origem": "d54cc06c79c0af90ec7664834f64b2807e0b10dd319fa3f6075d606c8667300b",
+      "adaptado": true
+    },
+    {
+      "origem": "front/src/components/nacional/Cta.tsx",
+      "destino": "src/components/nacional/Cta.tsx",
+      "sha256Origem": "d6dfb10e6653a2d60d66d83109d4f908ada666341ee98260e5930c8a29ac0a5b",
+      "adaptado": true
+    },
+    {
+      "origem": "front/src/components/nacional/servicos/Casca.tsx",
+      "destino": "src/components/nacional/servicos/Casca.tsx",
+      "sha256Origem": "63951ea674b39253a307345ec4a87a7d98ae760d6838a1a45cc2efb700541c27",
+      "adaptado": true
+    },
+    {
+      "origem": "front/src/data/servicos.ts",
+      "destino": "src/data/servicos.ts",
+      "sha256Origem": "fd5ee88668574a849ccc42ac186390c4ae9c80566a499a7d4f6433b3f03a4615",
+      "adaptado": true
+    },
+    {
+      "origem": "front/src/components/nacional/ContinuarAcessando.tsx",
+      "destino": "src/components/nacional/ContinuarAcessando.tsx",
+      "sha256Origem": "2b52e0ee370674e649fb9abbcafb461f183cbb422e79d20da42aaa88df7891e3",
+      "adaptado": true
+    },
+    {
+      "origem": "front/src/components/nacional/servicos/base.css",
+      "destino": "src/components/nacional/servicos/base.css",
+      "sha256Origem": "2be1fc6da2fd36857c1e8703e7777a4b46165531f2cdfaeda2a78d6c28aece6d",
+      "adaptado": false
+    },
+    {
+      "origem": "front/src/components/nacional/servicos/cartao/cartao.css",
+      "destino": "src/components/nacional/servicos/cartao/cartao.css",
+      "sha256Origem": "500878a7133c54fdbe1800ee3fb3864bcd89ba0bb52f4551fb13953b2647c498",
+      "adaptado": false
+    },
+    {
+      "origem": "front/src/styles.css",
+      "destino": "src/styles.css",
+      "sha256Origem": "ebbbe90a8374f4d92b7f22a566beddbc60dfa045a22e0f1ab902578837f5169b",
+      "adaptado": true
+    },
+    {
+      "origem": "front/src/app/(nacional)/nacional.css",
+      "destino": "src/app/(nacional)/nacional.css",
+      "sha256Origem": "6ec0a8900c1103632131c4b2babea5d00d07477e3a8333ee7a9056806794cfa2",
+      "adaptado": false
+    },
+    {
+      "origem": "front/src/app/(nacional)/paginas.css",
+      "destino": "src/app/(nacional)/paginas.css",
+      "sha256Origem": "4535fa33db88943c83ffe074e97f09715bf436823c9ba85f7f0bf9de6fd392c1",
+      "adaptado": false
+    },
+    {
+      "origem": "front/src/editor/estilo.css",
+      "destino": "src/styles/visual-secoes.css",
+      "adaptado": false
+    },
+    {
+      "origem": "front/src/editor/secoes/genericas.css",
+      "destino": "src/styles/genericas.css",
+      "adaptado": false
+    }
+  ],
+  "imagens": [
+    {
+      "origem": "front/public/marca/servicos/cartao/celular.webp",
+      "destino": "public/marca/servicos/cartao/celular.webp",
+      "bytes": 60234
+    },
+    {
+      "origem": "front/public/marca/servicos/cartao/logo.webp",
+      "destino": "public/marca/servicos/cartao/logo.webp",
+      "bytes": 18566
+    },
+    {
+      "origem": "front/public/favicon.png",
+      "destino": "public/favicon.png"
+    }
+  ],
+  "dependencias": {
+    "lucide-react": "^0.575.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.9",
+    "tw-animate-css": "^1.3.4"
+  },
+  "limpeza": {
+    "data": "2026-10-21",
+    "resumo": "Sem topo, menu lateral, rodapé e botão de WhatsApp da Mútua; dados nacionais, menu e rodapé removidos; servicos.ts só com os serviços atuais; public/ só com imagens usadas; design-tokens.json reduzido ao essencial."
+  }
+}

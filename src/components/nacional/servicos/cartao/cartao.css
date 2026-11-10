@@ -1,0 +1,276 @@
+/* Cartão de Visita Digital — azul Mútua, verde de acento, mockup de celular e o cartão como protagonista. */
+.sv--cartao-de-visita-digital {
+  --cv-azul: #0854aa;
+  --cv-claro: #3b82f6;
+  --cv-verde: #10b981;
+  --cv-ouro: #eab308;
+  --cv-noite: #0f172a;
+  --cv-cinza: #475569;
+  --cv-gelo: #f1f5fb;
+  --cv-nevoa: #ecf4fa;
+  background: #fff;
+  color: var(--cv-noite);
+}
+/* Escala a landing inteira 15% menor no desktop; no celular os textos já estão no mínimo confortável. */
+@media (min-width: 900px) {
+  .sv--cartao-de-visita-digital { zoom: 0.85; }
+}
+.sv--cartao-de-visita-digital [data-tema='celular'] { --t: #0011ff; }
+.sv--cartao-de-visita-digital [data-tema='mws'] { --t: #1e40af; }
+.sv--cartao-de-visita-digital [data-tema='mulher'] { --t: #8e165a; }
+.sv--cartao-de-visita-digital [data-tema='hub'] { --t: #2563eb; }
+.sv--cartao-de-visita-digital [data-tema='verso'] { --t: #6d26d9; }
+.sv--cartao-de-visita-digital [data-tema='clube'] { --t: #167762; }
+.sv--cartao-de-visita-digital [data-tema] { --t-txt: #fff; --t-sub: rgb(255 255 255 / 0.78); }
+.sv--cartao-de-visita-digital .mt-cta--claro { color: var(--cv-azul); --cta-disco: var(--cv-azul); --cta-hover: var(--cv-verde); }
+.sv--cartao-de-visita-digital .mt-cta--escuro { --cta-seta: var(--cv-azul); --cta-hover: var(--cv-verde); --cta-hover-seta: #fff; }
+
+/* Entrada ao rolar: `revela-ativo` e `is-visivel` vêm do useRevelar; anima só translate/scale/opacity. */
+@media (prefers-reduced-motion: no-preference) {
+  .revela-ativo [data-revela] {
+    opacity: 0;
+    translate: 0 40px;
+    transition: opacity 900ms cubic-bezier(.22, 1, .36, 1), translate 900ms cubic-bezier(.22, 1, .36, 1), scale 1100ms cubic-bezier(.22, 1, .36, 1);
+    transition-delay: calc(var(--d, 0) * 90ms);
+  }
+  .revela-ativo [data-revela='imagem'] { translate: none; scale: 0.96; }
+  .revela-ativo [data-revela].is-visivel { opacity: 1; translate: none; scale: none; }
+}
+
+.sv-cv-titulo { font-family: var(--fonte-display), system-ui, sans-serif; font-weight: 800; font-size: clamp(2.1rem, 4.2vw, 4rem); letter-spacing: -0.045em; line-height: 1.02; max-width: 20ch; }
+.sv-cv-titulo span { color: var(--cv-azul); }
+.sv-cv-intro { margin-top: 16px; max-width: 52ch; font-size: 1.15rem; line-height: 1.6; color: var(--cv-cinza); }
+.sv-cv-secao { padding-block: clamp(96px, 10vw, 160px); }
+.sv-cv-secao.is-gelo { background: var(--cv-gelo); }
+
+/* ---------- Hero ---------- */
+.sv-cv-hero { padding: clamp(40px, 5vw, 72px) 0 clamp(72px, 7vw, 96px); background: var(--cv-gelo); }
+.sv-cv-hero__grade { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.sv-cv-hero__texto { display: grid; justify-items: start; gap: 24px; }
+.sv-cv-hero h1 { font-family: var(--fonte-display), system-ui, sans-serif; font-weight: 800; font-size: clamp(2.6rem, 5.8vw, 5.4rem); letter-spacing: -0.05em; line-height: 0.98; }
+.sv-cv-hero h1 span { color: var(--cv-azul); }
+.sv-cv-hero__texto > p { max-width: 48ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); line-height: 1.55; color: var(--cv-cinza); }
+.sv-cv-provas-faixa { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: -48px; }
+.sv-cv-provas { display: flex; align-items: center; gap: 28px; padding: 14px 36px 14px 16px; border-radius: 999px; background: linear-gradient(115deg, #661fd0 0%, #3b3bc4 50%, #0854aa 100%); color: #fff; box-shadow: 0 24px 48px -20px rgb(102 31 208 / 0.6), inset 0 0 0 1px rgb(255 255 255 / 0.16); }
+.sv-cv-provas p { margin: 0; }
+.sv-cv-provas__grupo { display: flex; align-items: center; gap: 16px; }
+.sv-cv-provas__avatares { display: flex; flex-shrink: 0; }
+.sv-cv-provas__avatares > span { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: rgb(255 255 255 / 0.18); box-shadow: 0 0 0 3px #6320cc; }
+.sv-cv-provas__grupo p { display: grid; gap: 2px; line-height: 1.3; }
+.sv-cv-provas__grupo b { font-family: var(--fonte-display), system-ui, sans-serif; font-size: 1.375rem; font-weight: 800; letter-spacing: -0.03em; }
+.sv-cv-provas__grupo p span { font-size: 0.95rem; color: rgb(255 255 255 / 0.82); }
+.sv-cv-provas__divisor { align-self: stretch; width: 1px; margin-block: 8px; background: rgb(255 255 255 / 0.28); }
+.sv-cv-provas__gratis { display: flex; align-items: center; gap: 8px; font-size: 1.05rem; font-weight: 700; white-space: nowrap; }
+.sv-cv-provas__gratis svg { color: #6ee7b7; }
+
+.sv-cv-hero__mockup { width: 100%; height: auto; }
+
+/* ---------- Arco: a roda gira e os cards somem pela base ---------- */
+.sv-cv-exemplos { padding-top: clamp(96px, 10vw, 152px); padding-bottom: 0; overflow: hidden; }
+.sv-cv-exemplos .sv-cv-titulo { margin-inline: auto; text-align: center; }
+.sv-cv-arco {
+  --raio: clamp(640px, 52vw, 820px);
+  --card-w: clamp(280px, 28vw, 360px);
+  --card-h: clamp(168px, 16.5vw, 210px);
+  --giro: 72s;
+  position: relative;
+  height: calc(var(--card-h) + 176px);
+  margin-top: clamp(44px, 5vw, 72px);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 32px), transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0, #000 calc(100% - 32px), transparent 100%);
+}
+.sv-cv-arco__roda {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--raio) + var(--card-h) / 2 + 12px);
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: sv-cv-roda var(--giro) linear infinite;
+}
+.sv-cv-arco__roda > li {
+  --a: calc(var(--i) * 360deg / var(--n));
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(var(--a)) translateY(calc(var(--raio) * -1));
+}
+.sv-cv-eixo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  transform: rotate(calc(var(--a) * -1));
+}
+.sv-cv-card {
+  position: absolute;
+  left: calc(var(--card-w) / -2);
+  top: calc(var(--card-h) / -2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--card-w);
+  height: var(--card-h);
+  padding: 20px 20px 16px;
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse 72% 58% at 0% 0%, rgb(255 255 255 / 0.42) 0%, rgb(255 255 255 / 0.14) 34%, transparent 62%),
+    var(--t);
+  color: #fff;
+  box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.7);
+  animation: sv-cv-em-pe var(--giro) linear infinite;
+}
+.sv-cv-card__topo { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.sv-cv-card__ident { display: grid; gap: 4px; min-width: 0; }
+.sv-cv-card__ident b { display: block; font-family: var(--fonte-display), system-ui, sans-serif; font-size: clamp(1.05rem, 1.35vw, 1.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+.sv-cv-card__cargo,
+.sv-cv-card__empresa { display: block; font-size: clamp(0.72rem, 0.85vw, 0.82rem); font-weight: 500; line-height: 1.3; color: #e6e6e8; }
+.sv-cv-card__empresa { color: #d2d2d6; }
+.sv-cv-card__marca { display: flex; align-items: center; gap: 8px; flex: none; max-width: 46%; }
+.sv-cv-card__selo { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: rgb(255 255 255 / 0.22); color: #fff; font-size: 0.68rem; font-weight: 800; letter-spacing: -0.03em; }
+.sv-cv-card__word { display: grid; gap: 4px; min-width: 0; }
+.sv-cv-card__word strong { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; line-height: 1; color: #fff; }
+.sv-cv-card__word small { display: flex; align-items: center; gap: 4px; font-size: 0.56rem; font-weight: 600; letter-spacing: 0.08em; color: #e4e4e8; }
+.sv-cv-card__word small::before,
+.sv-cv-card__word small::after { content: ""; width: 8px; height: 1px; background: currentColor; flex: none; }
+.sv-cv-card__contatos { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.sv-cv-card__contatos li { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: clamp(0.68rem, 0.75vw, 0.75rem); line-height: 1.2; color: #e4e4e8; }
+.sv-cv-card__contatos svg { flex: none; color: #ececee; }
+.sv-cv-card__contatos span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@keyframes sv-cv-roda { to { transform: rotate(360deg); } }
+@keyframes sv-cv-em-pe {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sv-cv-arco__roda,
+  .sv-cv-card { animation: none; }
+}
+
+/* ---------- Por que / recursos ---------- */
+.sv-cv-exemplos + .sv-cv-secao { padding-top: clamp(72px, 8vw, 128px); background: var(--cv-nevoa); }
+.sv-cv-porque { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: clamp(40px, 4.5vw, 56px) 0 0; padding: 0; list-style: none; }
+.sv-cv-porque > li { display: flex; flex-direction: column; padding: 12px; border: 6px solid var(--cv-noite); border-radius: 32px; background: #fff; color: var(--cv-noite); --apoio: var(--cv-cinza); --linha: rgb(15 23 42 / 0.15); }
+.sv-cv-porque > li[data-card='insights'] { background: var(--cv-noite); color: #fff; --apoio: #cbd5e1; --linha: rgb(255 255 255 / 0.2); }
+.sv-cv-porque__topo { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 16px 16px 0; }
+.sv-cv-porque h3 { max-width: 10ch; min-height: 2.1em; font-family: var(--fonte-display), system-ui, sans-serif; font-size: clamp(1.75rem, 2.4vw, 2.25rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+.sv-cv-porque__selo { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--cv-noite); color: #fff; }
+.sv-cv-porque > li[data-card='insights'] .sv-cv-porque__selo { background: #fff; color: var(--cv-noite); }
+.sv-cv-porque p { margin: 16px 16px 24px; padding-top: 16px; border-top: 1px solid var(--linha); font-size: 1rem; line-height: 1.5; color: var(--apoio); }
+.sv-cv-porque__img { margin-top: auto; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 22px; }
+/* O fundo gerado na imagem fica a poucos tons do card; a mescla iguala os dois sem borda visível. */
+.sv-cv-porque__img img { display: block; width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; }
+.sv-cv-porque > li[data-card='insights'] .sv-cv-porque__img img { mix-blend-mode: lighten; }
+
+.sv-cv-hq { padding-block: clamp(88px, 9.5vw, 144px); background: var(--cv-noite); color: #fff; }
+.sv-cv-hq .sv-cv-titulo span { color: #c4b5fd; }
+/* Panfletos: cada etapa usa a cor do card de "Por que escolher" na mesma posição (roxo, azul, verde). */
+/* O cartão em destaque cresce por flex-grow; RecursosCartao.tsx anima a troca e limpa os estilos inline no fim.
+   overflow-clip-margin mantém sombra e cantos inclinados visíveis enquanto a lista fica com overflow: clip. */
+.sv-cv-hq__grade { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.6fr); align-items: start; gap: clamp(32px, 4vw, 64px); }
+.sv-cv-panfletos { display: flex; gap: 16px; margin: 0; padding: 0; list-style: none; overflow-clip-margin: 48px; }
+.sv-cv-panfletos > li { --c: #661fd0; --c-meio: #9466ee; --c-suave: #d9c9fb; --c-claro: #f3eefe; --giro: -1.2deg; display: flex; flex: 1 1 0; flex-direction: column; min-width: 0; }
+.sv-cv-panfletos > li[data-ativo='true'] { flex-grow: 1.6; }
+.sv-cv-panfletos > li:nth-child(2) { --c: #0854aa; --c-meio: #3d86d6; --c-suave: #c6dcf6; --c-claro: #eef5fd; --giro: 1deg; }
+.sv-cv-panfletos > li:nth-child(3) { --c: #02a281; --c-meio: #1fbf98; --c-suave: #bdeedf; --c-claro: #ecfaf5; --giro: -0.6deg; }
+
+/* rotate/translate/scale separados: hover e clique somam movimento sem apagar a inclinação do papel. */
+.sv-cv-panfleto { display: flex; flex: 1; flex-direction: column; min-height: clamp(440px, 36vw, 540px); overflow: hidden; border-radius: 24px; background: var(--c-claro); color: var(--cv-noite); box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.7); rotate: var(--giro); transition: translate 200ms ease, scale 200ms ease, box-shadow 200ms ease; }
+.sv-cv-panfletos > li[data-ativo='false'] .sv-cv-panfleto { cursor: pointer; }
+.sv-cv-panfletos > li[data-ativo='false'] .sv-cv-panfleto:hover { translate: 0 -4px; box-shadow: 0 32px 56px -24px color-mix(in srgb, var(--c) 70%, rgb(0 0 0 / 0.7)); }
+.sv-cv-panfletos > li[data-ativo='false'] .sv-cv-panfleto:active { scale: 0.98; }
+
+/* A linha tracejada embaixo da capa imita o picote do panfleto. */
+.sv-cv-panfleto__capa { border-bottom: 2px dashed rgb(255 255 255 / 0.45); background: linear-gradient(135deg, var(--c) 0%, var(--c) 40%, var(--c-meio) 100%); color: #fff; }
+.sv-cv-panfleto__botao { display: block; width: 100%; padding: 32px 20px 20px; border: 0; border-radius: 24px 24px 0 0; background: none; color: inherit; font-family: var(--fonte-display), system-ui, sans-serif; font-size: clamp(1.375rem, 1.8vw, 1.75rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1; text-align: left; cursor: inherit; }
+.sv-cv-panfleto__botao:focus-visible { outline: 3px solid currentColor; outline-offset: -3px; }
+
+.sv-cv-panfleto__corpo { flex: 1; margin: 0; padding: 4px 20px 12px; list-style: none; }
+.sv-cv-panfleto__corpo li { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 14px; padding: 16px 0; }
+.sv-cv-panfletos > li[data-ativo='true'] .sv-cv-panfleto__corpo li { align-items: start; }
+.sv-cv-panfleto__corpo li + li { border-top: 1px dashed color-mix(in srgb, var(--c) 35%, transparent); }
+.sv-cv-panfleto__icone { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--c); color: #fff; }
+.sv-cv-panfleto__corpo h4 { font-family: var(--fonte-display), system-ui, sans-serif; font-size: 1.125rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; }
+.sv-cv-panfleto__descricao { font-size: 0.9375rem; line-height: 1.5; color: rgb(15 23 42 / 0.78); }
+
+/* Detalhes do cartão fechado não podem ocupar altura, senão esticam a linha inteira. */
+.sv-cv-panfleto__descricao,
+.sv-cv-panfleto__acao { max-height: 0; overflow: clip; visibility: hidden; }
+.sv-cv-panfletos > li[data-ativo='true'] .sv-cv-panfleto__descricao { max-height: 40rem; margin-top: 4px; visibility: visible; }
+.sv-cv-panfletos > li[data-ativo='true'] .sv-cv-panfleto__acao { display: flex; justify-content: center; max-height: 40rem; padding: 4px 20px 24px; visibility: visible; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sv-cv-hq *,
+  .sv-cv-hq *::before,
+  .sv-cv-hq *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+}
+
+/* ---------- Rede ---------- */
+/* O fundo da seção é a cor de fundo da panorâmica, para a imagem emendar nas laterais. */
+.sv-cv-rede { padding-top: clamp(88px, 9.5vw, 144px); background: var(--cv-nevoa); overflow: hidden; }
+.sv-cv-rede__topo { display: grid; justify-items: center; text-align: center; }
+.sv-cv-rede__topo .sv-cv-titulo { max-width: 24ch; }
+.sv-cv-rede__topo .sv-cv-intro { margin-top: 20px; max-width: 54ch; font-size: clamp(1.15rem, 1.7vw, 1.5rem); line-height: 1.5; }
+.sv-cv-rede__cta { display: flex; justify-content: center; margin-top: clamp(24px, 3vw, 40px); }
+.sv-cv-rede__panorama { display: block; width: 100%; height: clamp(240px, 30vw, 440px); margin-top: clamp(8px, 1.5vw, 24px); object-fit: cover; }
+
+/* ---------- Projetos ---------- */
+/* Os logos são negativos com detalhes no azul da marca: o bloco escuro mantém esses detalhes visíveis sobre o fundo azul. */
+.sv-cv-projetos { padding-block: clamp(36px, 4vw, 56px); background: var(--cv-azul); color: #fff; }
+.sv-cv-projetos__grade { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(24px, 4vw, 56px); }
+.sv-cv-projetos h2 { font-family: var(--fonte-display), system-ui, sans-serif; font-size: clamp(1.5rem, 2.2vw, 2rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+.sv-cv-projetos h2 span { display: block; color: #bfdbfe; white-space: nowrap; }
+/* Carrossel contínuo: a lista tem duas cópias e desliza metade da largura, então o fim emenda no começo. */
+.sv-cv-projetos__trilho { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.sv-cv-projetos__lista { display: flex; width: max-content; margin: 0; padding: 8px 0; list-style: none; animation: sv-cv-desliza 45s linear infinite; }
+.sv-cv-projetos__trilho:hover .sv-cv-projetos__lista,
+.sv-cv-projetos__trilho:focus-within .sv-cv-projetos__lista { animation-play-state: paused; }
+.sv-cv-projetos__lista li { flex: none; padding-right: 16px; }
+.sv-cv-projetos__lista a { display: grid; place-items: center; width: 200px; height: 84px; padding: 16px 22px; border-radius: 18px; background: var(--cv-noite); box-shadow: 0 16px 32px -20px rgb(0 0 0 / 0.6), inset 0 0 0 1px rgb(255 255 255 / 0.08); transition: translate 200ms ease, box-shadow 200ms ease; }
+.sv-cv-projetos__lista a:hover { translate: 0 -3px; box-shadow: 0 20px 36px -20px rgb(0 0 0 / 0.7), inset 0 0 0 1px rgb(255 255 255 / 0.24); }
+.sv-cv-projetos__lista a:focus-visible { outline: 3px solid #fff; outline-offset: -3px; }
+.sv-cv-projetos__lista img { display: block; width: auto; max-width: 100%; height: auto; max-height: 44px; }
+@keyframes sv-cv-desliza { to { translate: -50% 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .sv-cv-projetos__trilho { overflow-x: auto; }
+  .sv-cv-projetos__lista { animation: none; }
+  .sv-cv-projetos__lista li[aria-hidden] { display: none; }
+}
+/* A arte da Mútua Mulher é quase quadrada e a escrita do Signer é azul-escura: compensam tamanho e contraste no bloco escuro. */
+.sv-cv-projetos__lista a[data-logo='mutua-mulher'] img { max-height: 58px; }
+.sv-cv-projetos__lista a[data-logo='signer'] img { filter: brightness(1.7) saturate(1.15); }
+
+/* ---------- Rodapé ---------- */
+.sv-cv-rodape { padding-block: 32px; background: var(--cv-noite); }
+.sv-cv-rodape__linha { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
+.sv-cv-rodape__linha p { margin: 0; font-size: 0.875rem; line-height: 1.5; color: #94a3b8; text-align: left; }
+.sv-cv-rodape__linha img { display: block; width: 312px; max-width: 100%; height: auto; }
+
+@media (max-width: 640px) {
+  .sv-cv-provas { flex-direction: column; gap: 14px; padding: 20px 24px; border-radius: 28px; text-align: center; }
+  .sv-cv-provas__grupo { flex-direction: column; gap: 10px; }
+  .sv-cv-provas__divisor { width: 100%; height: 1px; margin: 0; }
+  .sv-cv-projetos__grade { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .sv-cv-projetos__lista a { width: 168px; height: 72px; }
+}
+
+@media (max-width: 1100px) {
+  .sv-cv-hero__grade { grid-template-columns: 1fr; }
+}
+@media (max-width: 899px) {
+  .sv-cv-porque { grid-template-columns: minmax(0, 480px); justify-content: center; }
+  .sv-cv-hq__grade { grid-template-columns: minmax(0, 1fr); gap: clamp(32px, 6vw, 48px); }
+  .sv-cv-panfletos { flex-direction: column; gap: 20px; width: 100%; max-width: 480px; margin-inline: auto; }
+  .sv-cv-panfleto { min-height: 0; }
+  .sv-cv-panfletos > li,
+  .sv-cv-panfletos > li[data-ativo='true'] { flex: 0 0 auto; }
+  .sv-cv-arco { --raio: 560px; --card-w: 250px; --card-h: 208px; }
+  .sv-cv-card__selo,
+  .sv-cv-card__word small::before,
+  .sv-cv-card__word small::after { display: none; }
+}
