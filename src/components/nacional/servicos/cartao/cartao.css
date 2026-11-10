@@ -174,13 +174,12 @@
    overflow-clip-margin mantém sombra e cantos inclinados visíveis enquanto a lista fica com overflow: clip. */
 .sv-cv-hq__grade { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 2.6fr); align-items: start; gap: clamp(32px, 4vw, 64px); }
 .sv-cv-panfletos { display: flex; gap: 16px; margin: 0; padding: 0; list-style: none; overflow-clip-margin: 48px; }
-.sv-cv-panfletos > li { --c: #661fd0; --c-meio: #9466ee; --c-suave: #d9c9fb; --c-claro: #f3eefe; --giro: -1.2deg; display: flex; flex: 1 1 0; flex-direction: column; min-width: 0; }
+.sv-cv-panfletos > li { --c: #661fd0; --c-meio: #9466ee; --c-suave: #d9c9fb; --c-claro: #f3eefe; display: flex; flex: 1 1 0; flex-direction: column; min-width: 0; }
 .sv-cv-panfletos > li[data-ativo='true'] { flex-grow: 1.6; }
-.sv-cv-panfletos > li:nth-child(2) { --c: #0854aa; --c-meio: #3d86d6; --c-suave: #c6dcf6; --c-claro: #eef5fd; --giro: 1deg; }
-.sv-cv-panfletos > li:nth-child(3) { --c: #02a281; --c-meio: #1fbf98; --c-suave: #bdeedf; --c-claro: #ecfaf5; --giro: -0.6deg; }
+.sv-cv-panfletos > li:nth-child(2) { --c: #0854aa; --c-meio: #3d86d6; --c-suave: #c6dcf6; --c-claro: #eef5fd; }
+.sv-cv-panfletos > li:nth-child(3) { --c: #02a281; --c-meio: #1fbf98; --c-suave: #bdeedf; --c-claro: #ecfaf5; }
 
-/* rotate/translate/scale separados: hover e clique somam movimento sem apagar a inclinação do papel. */
-.sv-cv-panfleto { display: flex; flex: 1; flex-direction: column; min-height: clamp(440px, 36vw, 540px); overflow: hidden; border-radius: 24px; background: var(--c-claro); color: var(--cv-noite); box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.7); rotate: var(--giro); transition: translate 200ms ease, scale 200ms ease, box-shadow 200ms ease; }
+.sv-cv-panfleto { display: flex; flex: 1; flex-direction: column; min-height: clamp(440px, 36vw, 540px); overflow: hidden; border-radius: 24px; background: var(--c-claro); color: var(--cv-noite); box-shadow: 0 24px 48px -24px rgb(0 0 0 / 0.7); transition: translate 200ms ease, scale 200ms ease, box-shadow 200ms ease; }
 .sv-cv-panfletos > li[data-ativo='false'] .sv-cv-panfleto { cursor: pointer; }
 .sv-cv-panfletos > li[data-ativo='false'] .sv-cv-panfleto:hover { translate: 0 -4px; box-shadow: 0 32px 56px -24px color-mix(in srgb, var(--c) 70%, rgb(0 0 0 / 0.7)); }
 .sv-cv-panfletos > li[data-ativo='false'] .sv-cv-panfleto:active { scale: 0.98; }
